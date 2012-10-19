@@ -1,0 +1,8 @@
+#reputation-chart, #conversation-chart, #influence-chart {
+  float: left;
+  margin-right: 20px;
+}
+
+#following-chart, #commitment-chart, #speed-chart {
+  float: left;
+}

@@ -1,0 +1,5 @@
+Twittalicious features in future releases
+
+- Dashboard
+- Translations
+- REST Server

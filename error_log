@@ -1,0 +1,8 @@
+[18-Oct-2012 13:19:23 UTC] PHP Fatal error:  Class 'ARC2' not found in /home/enredlab/public_html/dod/sites/all/modules/sparql/sparql.module on line 64
+[18-Oct-2012 13:22:49 UTC] PHP Fatal error:  Class 'ARC2' not found in /home/enredlab/public_html/dod/sites/all/modules/sparql/sparql.module on line 64
+[18-Oct-2012 13:23:13 UTC] PHP Fatal error:  Class 'ARC2' not found in /home/enredlab/public_html/dod/sites/all/modules/sparql/sparql.module on line 64
+[18-Oct-2012 13:47:31 UTC] PHP Fatal error:  Class 'ARC2' not found in /home/enredlab/public_html/dod/sites/all/modules/sparql/sparql.module on line 61
+[18-Oct-2012 13:48:21 UTC] PHP Fatal error:  Class 'ARC2' not found in /home/enredlab/public_html/dod/sites/all/modules/sparql/sparql.module on line 64
+[18-Oct-2012 13:48:25 UTC] PHP Fatal error:  Class 'ARC2' not found in /home/enredlab/public_html/dod/sites/all/modules/sparql/sparql.module on line 61
+[18-Oct-2012 13:48:29 UTC] PHP Fatal error:  Class 'ARC2' not found in /home/enredlab/public_html/dod/sites/all/modules/sparql/sparql.module on line 61
+[18-Oct-2012 15:09:18 UTC] PHP Fatal error:  Unsupported operand types in /home/enredlab/public_html/dod/sites/all/modules/sparql_views/plugins/sparql_views_plugin_query_sparql.inc on line 337

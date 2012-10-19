@@ -1,0 +1,85 @@
+<?php
+
+/**
+ * @file twittalicious.module
+ */
+
+/**
+ * Implements hook_help()
+ */
+function twittalicious_help() {
+
+}
+
+/**
+ * Implements hook_menu()
+ */
+function twittalicious_menu() {
+  $items['dashboard'] = array(
+    'title' => 'Dashboard',
+    'type' => MENU_CALLBACK,
+    'page callback' => 'twittalicious_dashboard',
+    'file' => 'twittalicious.pages.inc',
+    'access callback' => 'user_access',
+    'access arguments' => array('access twittalicious'),
+  );
+
+  $items['demo'] = array(
+    'title' => 'Demo',
+    'type' => MENU_CALLBACK,
+    'page callback' => 'twittalicious_demo',
+    'file' => 'twittalicious.pages.inc',
+    'access callback' => TRUE,
+  );
+
+  return $items;
+}
+
+/**
+ * Implements hook_permission()
+ */
+function twittalicious_permission() {
+  return array(
+    'configure twittalicious' => array(
+      'title' => t('Configure Twittalicious'),
+    ),
+    'access twittalicious' => array(
+      'title' => t('Access Twittalicious Dashboard'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_services_resources()
+ */
+function twittalicious_services_resources() {
+  return array(
+    'graph' => array(
+      'retrieve' => array(
+	'help' => 'Displays a demo graph with random data in JSON format',
+	'file' => array(
+          'file' => 'twittalicious.inc',
+          'module' => 'twittalicious',
+          'type' => 'inc',
+        ),
+	'callback' => '_twittalicious_graph_json',
+        'access callback' => '_twittalicious_resource_access',
+	'access arguments' => array('demo'),
+	'access arguments append' => FALSE,
+	'args' => array(
+	  array(
+	    'name' => 'name',
+	    'type' => 'string',
+	    'description' => 'The name of the graph you want to view',
+	    'source' => array('path' => '0'),
+	    'optional' => TRUE,
+	  ),
+	),
+      ),
+    ),
+  );
+}
+
+function _twittalicious_resource_access($graph) {
+  return TRUE;
+}

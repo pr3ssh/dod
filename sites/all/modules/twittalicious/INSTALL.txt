@@ -1,0 +1,33 @@
+Instal instructions:
+
+This install file makes the assumptions you are running stable Drupal 7 version installed and configured. 
+
+1. Download twittalicious module cloning the sandbox @TODO Create the twittalicious sandbox
+2. Enable twittalicious module by going to admin/modules.
+3. Configure the module permissions by going to admin/people/permissions.
+4. Access the twittalicious dashboard by going to dashboard.
+
+Twitter module installation instructions
+
+1. Download twitter module from http://www.drupal.org/project/twitter.
+2. Enable twitter module by going to admin/modules.
+3. Configure twitter module by going to admin/config/services/twitter.
+4. You must create a twitter application to obtain the OAuth Settings.
+
+
+OAuth module installation instructions
+
+1. Download oauth module from http://www.drupal.org/project/oauth.
+2. Enable oauth module by going to admin/modules.
+3. Configure the oauth module by going to admin/config/services/oauth.
+
+Note: If you need help you shoud read the following blog post
+
+http://drewpull.drupalgardens.com/blog/drupal-7-twitter
+
+HighCharts Library installation instructions:
+
+1. Create directory "sites/all/libraries/highcharts"  
+2. Download Highcharts library from http://highcharts.com/download. Twittalicious module is tested with version 2.2.0 of highcharts library.
+3. Copy all the contents of downloaded folder Highchart-2 to "sites/all/libraries/highcharts"
+4. Now "sites/all/libraries/highcharts" directory should contain index.htm and 4 other folder.

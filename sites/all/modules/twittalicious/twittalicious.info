@@ -1,0 +1,17 @@
+name = Twittalicious
+description = Analysis and measure of the socialmedia activity.
+core = 7.x
+configure = admin/config/services/twittalicious
+
+files[] = twittalicious.charts.inc
+files[] = twittalicious.inc
+files[] = twittalicious.install
+files[] = twittalicious.lib.php
+files[] = twittalicious.module
+files[] = twittalicious.pages.inc
+
+dependencies[] = twitter
+dependencies[] = oauth_common
+dependencies[] = libraries
+dependencies[] = services
+dependencies[] = ctools

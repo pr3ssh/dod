@@ -1,0 +1,146 @@
+<?php
+
+/**
+ * @file twittalicious.install
+ * Install, update and uninstall functions for the twittalicious module.
+ * @TODO create twittalicious_campaigns schema
+ */
+
+/**
+ * Implements hook_schema()
+ */
+function twittalicious_schema() {
+  $schema['twittalicious'] = array(
+    'description' => "Stores individual Twitter posts.",
+    'fields' => array(
+      'user_id' => array(
+        'description' => "Unique identifier for each twitter user.",
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 20,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'screen_name' => array(
+        'description' => "Screen Name of the twitter user.",
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+      ),
+      'date_retrieved' => array(
+        'description' => "Date and time of the retrieved data in UNIX timestamp format.",
+        'type' => 'int',
+        'not null' => TRUE,
+      ),
+      'statuses_count' => array(
+        'description' => "Number of tweets posted by the user",
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 6,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'retweet_count' => array(
+        'description' => "Number of retweets received by the user",
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 6,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'followers_count' => array(
+        'description' => "Number of followers of the user",
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 6,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'friends_count' => array(
+        'description' => "Number of friends followed by the user",
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 6,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'lists_count' => array(
+        'description' => "Number of lists created by the user",
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 6,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'listed_count' => array(
+        'description' => "Number of lists where the user was added",
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 6,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'favourites_count' => array(
+        'description' => "Number of tweets favourited by the user",
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 6,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'favourited_count' => array(
+        'description' => "Number of tweets of the user favourited by other users",
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 6,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'replies_count' => array(
+        'description' => "Number of tweet replies received by the user",
+        'type' => 'numeric',
+        'unsigned' => TRUE,
+        'precision' => 6,
+        'scale' => 0,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'indexes' => array('screen_name' => array('screen_name')),
+    'primary key' => array('user_id'),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implements hook_install()
+ */
+function twittalicious_install() {
+  // Set the weight to 3, making it heavier than Pathauto.
+  db_update('system')
+    ->fields(array(
+        'weight' => 3,
+      ))
+    ->condition('type', 'module')
+    ->condition('name', 'twittalicious')
+    ->execute();
+}
+
+/**
+ * Implements hook_uninstall()
+ */
+function twittalicious_uninstall() {
+  // Remove variables
+}
+
